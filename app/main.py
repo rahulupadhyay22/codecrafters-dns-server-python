@@ -3,7 +3,7 @@ import socket
 
 def main():
     # You can use print statements as follows for debugging, they'll be visible when running tests.
-     #print("Logs from your program will appear here!")
+    print("Logs from your program will appear here!")
 
     # Uncomment this block to pass the first stage
     
@@ -15,7 +15,8 @@ def main():
         try:
             buf, source = udp_socket.recvfrom(512)
     
-            response = b""
+            response = b"\x04\xd2\x80" + (b"\x00" * 9)
+
     
             udp_socket.sendto(response, source)
         except Exception as e:
